@@ -1,0 +1,7 @@
+%h1= @store.name
+
+= render 'products/form', product: @product
+
+
+.products
+	= render @store.products
