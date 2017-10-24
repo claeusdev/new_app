@@ -1,2 +1,8 @@
-%h1 Stores#show
-%p Find me in app/views/stores/show.html.haml
+%h1= @store.name
+%p= @store.about
+%p= @store.user.country
+
+%hr/
+- @store.products.each do |p|
+	= link_to p.name, store_product_path(@store, p)
+	-# = image_tag(p.image.url, width: 300, height: 300)
