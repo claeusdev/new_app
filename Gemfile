@@ -20,6 +20,10 @@ gem 'devise'
 gem 'haml-rails'
 gem 'bourbon'
 gem 'normalize-rails'
+
+gem 'carrierwave'
+gem 'cloudinary'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
