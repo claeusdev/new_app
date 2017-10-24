@@ -5,4 +5,5 @@
 %hr/
 - @store.products.each do |p|
 	= link_to p.name, store_product_path(@store, p)
-	= image_tag(p.image.url, width: 300, height: 300)
+	- for asset in p.assets
+		= image_tag(asset.image_url(:standard))

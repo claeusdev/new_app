@@ -9,4 +9,4 @@
 		- if assets.object.new_record?
 			= assets.file_field :image
 
-	= f.submit "Add product"
+	= f.submit "Add product", data: { disable_with: 'Adding product...' }
