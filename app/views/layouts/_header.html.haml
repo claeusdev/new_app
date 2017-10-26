@@ -1,4 +1,11 @@
-= link_to current_user.first_name
-- if current_user.store.present?
-	= link_to "My store", store_path(current_user.store)
-	= link_to "Dashboard", store_dashboard_path(current_user.store)
+
+%nav.navbar.sticky-top.navbar-white.bg-white
+	.container
+		= link_to "Claeus", root_path, class: "navbar-brand"
+		
+		.ml-auto
+			%form.form-inline{:action => "#"}
+				.input-group
+					%input{:type => "text", class: "form-control", placeholder: "Search for something"}/
+					%span.input-group-btn
+						%button{ class: "btn btn-danger"}Search

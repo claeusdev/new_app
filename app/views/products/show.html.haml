@@ -1,3 +1,16 @@
-%h1= @product.name
-%p= @product.price
 
+.container
+	.product-header
+		.row
+			.col-sm-6
+				.product-image{ style: "background-image: url(#{@product.image.url(:medium)}"}
+
+				- for asset in @product.assets
+					%p.asset= image_tag(asset.image.url(:standard))
+			.col-sm-6
+
+				%h1= @product.name
+				.store-name= @product.store.name 
+				%p.price= number_to_currency(@product.price)
+				%p= @product.description
+				

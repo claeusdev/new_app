@@ -28,12 +28,16 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def scale(width, height)
   #   # do something
   # end
-    process :convert => 'png'
+  # process :convert => 'png'
 
 
   # Create different versions of your uploaded files:
   version :standard do
     process :resize_to_fill => [100, 150, :north]
+  end
+
+  version :medium do
+    resize_to_fit(600, 600)
   end
   
   version :thumbnail do
