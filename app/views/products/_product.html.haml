@@ -1,1 +1,9 @@
-= link_to product.name, store_product_path(product.store, product)
+
+
+.col-sm-3.col-6
+	.card
+		= image_tag(product.image_url(:medium), class: "card-img-top")
+		.card-body
+			= link_to product.name, store_product_path(product.store, product)
+			%p= number_to_currency(product.price)
+			

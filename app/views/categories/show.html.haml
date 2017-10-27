@@ -12,4 +12,15 @@
 				- @category.children.each do |category|
 					%li
 						= link_to_unless_current category.name, category
-			
+		.col-sm-9
+			.row
+				- @category.products.each do |p|
+					.col-sm-3.col-
+						= link_to store_product_path(p.store, p) do
+							.card
+								= image_tag(p.image_url(:medium), class: "card-img-top")
+								.card-body
+									= p.name
+									.card-bottom
+										.store= link_to p.store.name, p.store
+										%p.price= number_to_currency(p.price)

@@ -1,15 +1,23 @@
-= form_with(model: [@store, product], locale: true, remote: true) do |f|
+= form_with(model: [@store, @product], locale: true, remote: true) do |f|
+	.form-group
+		= f.text_field :name, placeholder: 'Give this item a name', class: "form-control"
+	.form-group
+		= f.text_area :description, placeholder: 'Give a description of this item', class: "form-control"
+	.form-group
+		= f.number_field :price, placeholder: 'The unit price', class: "form-control"
+	.form-group
+		= f.number_field :stock, placeholder: 'how much of this item do you have for sale', class: "form-control"
+	.form-group
+		= f.collection_select :category_id, Category.order(:name), :id, :name, {},include_blank: true, class: "form-control"
+	
+	%small Add a display image
+	%p= f.file_field :image
+	
+	.section-title Add a few more images
 
-	= f.text_field :name, placeholder: 'Give this item a name'
-	= f.text_area :description, placeholder: 'Give a description of this item'
-	= f.number_field :price, placeholder: 'The unit price'
-	= f.number_field :stock, placeholder: 'how much of this item do you have for sale'
-	= f.collection_select :parend_id, Category.order(:name), :id, :name, include_blank: true
-	
-	= f.file_field :image
-	
 	= f.fields_for :assets do |assets|
 		- if assets.object.new_record?
-			= assets.file_field :image
+			%p= assets.file_field :image
 
-	= f.submit "Add product", data: { disable_with: 'Adding product...' }
+	.modal-footer
+		= f.submit "Add product", class: "btn btn-danger", data: { disable_with: 'Adding product...' }
