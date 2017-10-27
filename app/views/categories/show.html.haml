@@ -1,0 +1,15 @@
+= content_for :title, @category.name
+
+.container
+	.breadcrumbs
+		- @category.ancestors.each do |category|
+			= link_to category.name, category
+			&gt
+	%h1= @category.name	
+	.row
+		.col-sm-3
+			%ul
+				- @category.children.each do |category|
+					%li
+						= link_to_unless_current category.name, category
+			

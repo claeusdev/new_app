@@ -25,6 +25,7 @@ gem 'normalize-rails'
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'bootstrap', '~> 4.0.0.beta2.1'
+gem 'ancestry'
 
 
 group :development, :test do

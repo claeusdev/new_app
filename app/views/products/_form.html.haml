@@ -4,6 +4,8 @@
 	= f.text_area :description, placeholder: 'Give a description of this item'
 	= f.number_field :price, placeholder: 'The unit price'
 	= f.number_field :stock, placeholder: 'how much of this item do you have for sale'
+	= f.collection_select :parend_id, Category.order(:name), :id, :name, include_blank: true
+	
 	= f.file_field :image
 	
 	= f.fields_for :assets do |assets|
