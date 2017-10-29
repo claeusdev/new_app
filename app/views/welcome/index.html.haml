@@ -1,9 +1,13 @@
 
-
-.row
-	.col-sm-6
-		.hero
-			%h1 Think Fashion? Think Claeus
-	.col-sm-6
-		- Category.roots.each do |category|
-			= link_to category.name, category
+.container
+	.row
+		.col-sm-6
+			.hero
+				%h1 Think Fashion? Think Claeus
+		.col-sm-6
+			.home-cat-section
+				.row
+					- Category.roots.each do |category|
+						.col-12
+							.home-cat-section__card
+								%h1= link_to "Shop #{category.name}", category

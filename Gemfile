@@ -26,6 +26,7 @@ gem 'carrierwave'
 gem 'cloudinary'
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'ancestry'
+gem 'searchkick'
 
 
 group :development, :test do

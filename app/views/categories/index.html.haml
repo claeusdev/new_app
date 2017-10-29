@@ -1,0 +1,9 @@
+.section-title All categories
+.container
+	.row
+		- Category.roots.each do |cat|
+			.col-sm-4.col-6
+				= cat.name
+				%ul
+					- cat.children.each do |child|
+						%li= link_to child.name, child

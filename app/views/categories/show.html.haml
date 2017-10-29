@@ -15,7 +15,7 @@
 		.col-sm-9
 			.row
 				- @category.products.each do |p|
-					.col-sm-3.col-
+					.col-sm-3.col-6
 						= link_to store_product_path(p.store, p) do
 							.card
 								= image_tag(p.image_url(:medium), class: "card-img-top")

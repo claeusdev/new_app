@@ -1,0 +1,28 @@
+
+<nav class="navbar sticky-top navbar-expand-lg navbar-light">
+	<div class="container">
+		<a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+    	<% Category.roots.each do |cat| %>
+				<li class="nav-item">
+					<%= link_to cat.name, cat, class: "nav-link" %>
+	      </li>
+    	<% end %>
+    </ul>
+    <form>
+    	<div class="input-group">
+    		<input class="form-control" id=type="search" placeholder="Search your style ..." aria-label="Search">
+    		<span class="input-group-btn">
+	    		<button class="btn btn-danger" type="submit">Search</button>
+    		</span>
+    	</div>
+    </form>
+  </div>
+	</div>
+  
+</nav>
