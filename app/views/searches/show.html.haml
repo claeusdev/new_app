@@ -1,0 +1,11 @@
+
+.section-title Results for 
+.container
+	.row
+		- @products.each do |p|
+			.col-6.col-sm-3
+				.card
+					= image_tag(p.image_url(:medium), class: "card-img-top")
+					.card-body
+						= link_to p.name, p
+						%p= number_to_currency(p.price)

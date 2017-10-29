@@ -3,7 +3,7 @@
 	.product-header
 		.row
 			.col-sm-6
-				.product-image{ style: "background-image: url(#{@product.image.url(:medium)}"}
+				.product-image{ style: "background-image: url(#{@product.image.url}"}
 
 				- for asset in @product.assets
 					%p.asset= image_tag(asset.image.url(:standard))

@@ -1,4 +1,4 @@
-= form_with(model: [@store, @product], locale: true, remote: true) do |f|
+= form_with(model: @product, locale: true) do |f|
 	.form-group
 		= f.text_field :name, placeholder: 'Give this item a name', class: "form-control"
 	.form-group

@@ -1,12 +1,16 @@
 class ProductsController < ApplicationController
 
+	def autocomplete
+		render json: Product.search(params[:term], fields: [{name: :text_start}], limit: 10).map(&:name)
+	end
+
 	def create
-		@store = Store.find(params[:store_id])
+		@store = current_user.store
 		@product = Product.new(product_params)
 		@product.store_id = @store.id
 		if @product.save
 			respond_to do |f|
-				f.js
+				f.html { redirect_to store_dashboard_path(@store)}
 			end
 		end
 	end

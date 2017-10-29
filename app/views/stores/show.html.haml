@@ -14,7 +14,7 @@
 			- @store.products.each do |p|
 				.col-sm-6.col-md-4.col-6
 					.card
-						= image_tag(p.image_url(:medium), class: "card-img-top")
+						= image_tag(p.image_url(:card), class: "card-img-top")
 						.card-body
-							= link_to p.name, store_product_path(@store, p)
+							= link_to p.name, p
 							%p= number_to_currency(p.price)
