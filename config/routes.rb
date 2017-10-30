@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+
   resource :search, only: [:show]
 
+  
   resources :products do
     collection do
       get 'autocomplete'
@@ -20,7 +22,7 @@ Rails.application.routes.draw do
   get 'welcome/about'
 
   devise_for :users
+  resources :users, only: [:show]
 
-
-  root 'welcome#index'
+  root 'pages#index'
 end

@@ -1,26 +1,12 @@
 = content_for :title, @category.name
 
+.category-header
+	.container
+		%h2= @category.name
+		.lead= "#{pluralize(@category.stores.count, "store")} stores selling #{@category.name}"
 .container
-	.breadcrumbs
-		- @category.ancestors.each do |category|
-			= link_to category.name, category
-			&gt
-	%h1= @category.name	
 	.row
-		.col-sm-3
-			%ul
-				- @category.children.each do |category|
-					%li
-						= link_to_unless_current category.name, category
-		.col-sm-9
-			.row
-				- @category.products.each do |p|
-					.col-sm-3.col-6
-						= link_to p do
-							.card
-								= image_tag(p.image_url(:card), class: "card-img-top")
-								.card-body
-									= p.name
-									.card-bottom
-										.store= link_to p.store.name, p.store
-										%p.price= number_to_currency(p.price)
+		- @category.stores.each do |store|
+			.col-sm-4.col-12
+				.card
+					= store.name

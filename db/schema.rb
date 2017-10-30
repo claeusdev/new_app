@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171026233126) do
+ActiveRecord::Schema.define(version: 20171030001914) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,8 +27,6 @@ ActiveRecord::Schema.define(version: 20171026233126) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "ancestry"
-    t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
   create_table "products", force: :cascade do |t|
@@ -40,8 +38,6 @@ ActiveRecord::Schema.define(version: 20171026233126) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
-    t.bigint "category_id"
-    t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["store_id"], name: "index_products_on_store_id"
   end
 
@@ -72,12 +68,12 @@ ActiveRecord::Schema.define(version: 20171026233126) do
     t.string "country"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "assets", "products"
-  add_foreign_key "products", "categories"
   add_foreign_key "products", "stores"
   add_foreign_key "stores", "categories"
   add_foreign_key "stores", "users"

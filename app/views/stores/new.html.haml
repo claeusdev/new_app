@@ -1,1 +1,24 @@
-= render 'form', store: @store
+.container
+	.new_store
+		.row
+			
+			.col-sm-6
+				%h1.section-title Show the world what you have
+				%p.lead Claeus gives you all the tools you need to get started online
+
+				%ul
+					%li Create a store easily
+					%li Add your products
+					%li Get noticed
+
+				.section-title How are we going to help you?
+				%ul
+					%li Your unique brand is going to be easy to find on all search engines.
+					%li We know youre just starting out so no fees.
+					%li Every day a Brand is featured on all our social media platforms.
+					%li No logo? Our design team will help you get started for a small fee.
+			.col-sm-6
+				.card
+					.card-header Create your store
+					%br/
+					= render 'form', store: @store

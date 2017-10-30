@@ -1,20 +1,24 @@
+.store-header
+	.container
+		.store-header-content
+			.store-info
+				%h2.store-name= @store.name
+				.store-info__container
+					.store-info__following
+					%br/
+					- if @store.about.blank?
+						%p Go into your settings and describe your store in a few words.
+					- else
+						.store-desc= @store.about
+					-# = follow_button @store
 
-.container
-	.store-header-container
-		.store-header
-			%h1.brand-name= @store.name
-			%p.rand-description= @store.about
-			%p.location= @store.user.country
-
-%hr/
-
-.storeSection
+.store-section
 	.container
 		.row
 			- @store.products.each do |p|
-				.col-sm-6.col-md-4.col-6
+				.col-sm-3.col-6
 					.card
-						= image_tag(p.image_url(:card), class: "card-img-top")
+						= image_tag(p.image_url(:card), class: "card-img-top img-fluid")
 						.card-body
 							= link_to p.name, p
 							%p= number_to_currency(p.price)

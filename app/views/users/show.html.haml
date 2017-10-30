@@ -1,0 +1,18 @@
+
+.section
+	.dialog-box
+		.user-header
+			.user-header__picContainer
+				.pro__pic
+			.user-info
+				.user-info__name= @user.first_name
+				-# .user-info__username-container
+				-# 	.user-info__following 100 Followers
+				-# 	.user-info__following 100 Followings
+			- if @user.store.present?
+				= button_to "Visit their store", store_path(@user.store), method: :get 
+
+			- elsif current_user == @user 
+				= button_to "Start Selling", new_store_path, method: :get
+
+					

@@ -7,8 +7,6 @@
 		= f.number_field :price, placeholder: 'The unit price', class: "form-control"
 	.form-group
 		= f.number_field :stock, placeholder: 'how much of this item do you have for sale', class: "form-control"
-	.form-group
-		= f.collection_select :category_id, Category.order(:name), :id, :name, {},include_blank: true, class: "form-control"
 	
 	%small Add a display image
 	%p= f.file_field :image

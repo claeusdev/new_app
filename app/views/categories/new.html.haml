@@ -5,6 +5,6 @@
 
   = f.text_field :name
 
-  = f.collection_select :parent_id, Category.order(:name), :id, :name, include_blank: true
+  = f.collection_select :parent_id, Category.roots.order(:name), :id, :name, include_blank: true
 
   = f.submit "Add category"

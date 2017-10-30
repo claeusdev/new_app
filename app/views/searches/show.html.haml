@@ -1,5 +1,7 @@
 
-.section-title Results for 
+.page-header
+	.container
+		%h3.section-title= "Results for #{params[:q]}" 
 .container
 	.row
 		- @products.each do |p|
