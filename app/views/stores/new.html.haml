@@ -1,24 +1,38 @@
+
+.page
+	%article.white
+		.container
+			.section
+				.title Start selling smarter, better and faster
+				.excerpt Grow your brand easily
 .container
 	.new_store
 		.row
-			
 			.col-sm-6
-				%h1.section-title Show the world what you have
-				%p.lead Claeus gives you all the tools you need to get started online
-
-				%ul
-					%li Create a store easily
-					%li Add your products
-					%li Get noticed
-
-				.section-title How are we going to help you?
-				%ul
-					%li Your unique brand is going to be easy to find on all search engines.
-					%li We know youre just starting out so no fees.
-					%li Every day a Brand is featured on all our social media platforms.
-					%li No logo? Our design team will help you get started for a small fee.
+				%ul.bullets
+					%li.bullet
+						.bullet-icon.bullet-icon-1
+							%img{:src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_square.png", :alt => ""}/ 
+						.bullet-content
+							%h2 Create your store
+							%p The shorter the name the easier to remember.
+							
+					%li.bullet
+						.bullet-icon.bullet-icon-2
+							%img{:src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_square.png", :alt => ""}/ 
+						.bullet-content
+							%h2 Add your products
+							%p Remember to name your products well.
+							
+					%li.bullet
+						.bullet-icon.bullet-icon-2
+							%img{:src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_square.png", :alt => ""}/ 
+						.bullet-content
+							%h2 Easily manage products
+							%p From your easy to use dashboard you can grow your brand.
 			.col-sm-6
-				.card
-					.card-header Create your store
-					%br/
-					= render 'form', store: @store
+				#newStoreForm
+					.card
+						.card-header Create your store
+						%br/
+						= render 'form', store: @store

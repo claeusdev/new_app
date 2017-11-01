@@ -1,29 +1,30 @@
 
-.container
 
-	%h1= @store.name
+.page-header
+	.container
+		%br/
+		%h1= @store.name
+		
 
-	= button_to "Add product", new_product_path, method: :get, class: "btn btn-danger"
-	.section-title Your products
-	.row
-		= render @store.products
+	-# Trigger new product modal
+		%button{ 'type' => "button", class: "btn btn-danger", 'data-toggle' => "modal", 'data-target' => "#newProductModal"} Add new product
+		.section-title Your products
+		.row
+			= render @store.products
+
+
+	-# .card
 
 
 
+-# New product modal
+.modal.fade#newProductModal{ 'tabindex' => "-1", 'role' => "dialog", "aria-labelledby" => "newProductModal", "aria-hidden" => "true" }
+	.modal-dialog{ role: "document"}
+		.modal-content
+			.modal-header
+				%h5.modal-title#newProductModalLabel Add a new Product
+				%button{ class: "close", "type" => "button", "data-dismiss" => "modal", 'aria-label' => "Close"}
+					%span{ 'aria-hidden' => true} &times
 
-
-	-# <!-- Button trigger modal -->
-	-# %button{ 'type' => "button", class: "btn btn-danger", 'data-toggle' => "modal", 'data-target' => "#newProductModal"} Add new product
--# All modals
-
--# <!-- Modal -->
--# .modal.fade#newProductModal{ 'tabindex' => "-1", 'role' => "dialog", "aria-labelledby" => "newProductModal", "aria-hidden" => "true" }
--# 	.modal-dialog{ role: "document"}
--# 		.modal-content
--# 			.modal-header
--# 				%h5.modal-title#newProductModalLabel Add a new Product
--# 				%button{ class: "close", "type" => "button", "data-dismiss" => "modal", 'aria-label' => "Close"}
--# 					%span{ 'aria-hidden' => true} &times
-
--# 			.modal-body
--# 				= render 'products/form', product: @product
+			.modal-body
+				= render 'products/form', product: @product

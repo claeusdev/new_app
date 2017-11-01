@@ -3,13 +3,9 @@ Rails.application.routes.draw do
   resource :search, only: [:show]
 
   
-  resources :products do
-    collection do
-      get 'autocomplete'
-    end
-  end
   
 	resources :stores do
+    resources :products
   	resource :dashboard, only: [:show]
   end
 
@@ -21,7 +17,7 @@ Rails.application.routes.draw do
 
   get 'welcome/about'
 
-  devise_for :users
+  devise_for :users, controllers: {:registrations => 'users/registrations'}
   resources :users, only: [:show]
 
   root 'pages#index'

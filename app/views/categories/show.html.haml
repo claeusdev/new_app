@@ -3,7 +3,7 @@
 .category-header
 	.container
 		%h2= @category.name
-		.lead= "#{pluralize(@category.stores.count, "store")} stores selling #{@category.name}"
+		.lead= "#{pluralize(@category.stores.count, "store")} stores selling in #{@category.name}"
 .container
 	.row
 		- @category.stores.each do |store|
