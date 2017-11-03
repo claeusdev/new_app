@@ -10,7 +10,7 @@
 			.col-sm-6
 
 				%h1= @product.name
-				.store-name= @product.store.name 
+				.store-name= link_to @product.store.name, store_path(@product.store) 
 				%p.price= number_to_currency(@product.price)
 				%p= @product.description
 

@@ -7,4 +7,8 @@ class ApplicationController < ActionController::Base
       end
    end
 
+
+   # def current_user
+   # 		super || Guest.new
+   # end
 end

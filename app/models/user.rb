@@ -8,7 +8,9 @@ class User < ApplicationRecord
   has_one :store, dependent: :destroy
   has_many :likes
   has_many :liked_products, through: :likes, source: :product
-
+  has_many :followings
+  has_many :followed_stores, through: :followings, source: :store
+  
   def follow(store, user)
   	store.followers << user
   end

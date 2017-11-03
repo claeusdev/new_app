@@ -4,7 +4,7 @@
 			.store-info
 				%h2.store-name= @store.name
 				.store-info__container
-					.store-info__following
+					.store-info__following= pluralize(@store.followers.count, "follower")
 					%br/
 					- if @store.about.blank?
 						%p Go into your settings and describe your store in a few words.
