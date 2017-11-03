@@ -17,8 +17,7 @@
           .nav-action.show-search{style: "background-image: url(#{image_path "search.png"})"}
         - if user_signed_in?
           .js-userNav.userNav
-          
-            .nav-profile.nav-action.account-action
+            .nav-profile.nav-action.account-action{ style: "background-image:  url('#{ gravatar_url(current_user)}')"  }
             .menuNav
               .menuNav-arrow
               .menuNav-scrim

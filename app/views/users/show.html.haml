@@ -4,7 +4,7 @@
 			.dialog-box
 				.user-header
 					.user-header__picContainer
-						.pro__pic{ style: "background-image: url('#{@user.avatar}')"}
+						.pro__pic{ style: "background-image: url('#{gravatar_url(@user)}')"}
 					.user-info
 						.user-info__name= @user.first_name
 						.user-info__username-container

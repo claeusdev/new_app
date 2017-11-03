@@ -9,5 +9,5 @@
 				.card
 					= image_tag(p.image_url(:medium), class: "card-img-top")
 					.card-body
-						= link_to p.name, p
+						= link_to p.name, store_product_path(p.store, p)
 						%p= number_to_currency(p.price)

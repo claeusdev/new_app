@@ -6,4 +6,9 @@ class User < ApplicationRecord
 
 
   has_one :store, dependent: :destroy
+
+
+  def follow(store, user)
+  	store.followers << user
+  end
 end

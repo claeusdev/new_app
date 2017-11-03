@@ -10,7 +10,7 @@
 						%p Go into your settings and describe your store in a few words.
 					- else
 						.store-desc= @store.about
-					-# = follow_button @store
+					= follow_button @store
 
 .store-section
 	.container
@@ -20,5 +20,5 @@
 					.card
 						= image_tag(p.image_url(:card), class: "card-img-top img-fluid")
 						.card-body
-							= link_to p.name, p
+							= link_to p.name, store_product_path(p.store, p)
 							%p= number_to_currency(p.price)

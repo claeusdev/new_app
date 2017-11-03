@@ -1,12 +1,7 @@
 class ProductsController < ApplicationController
 
-	def autocomplete
-		render json: Product.search(params[:term], fields: [{name: :text_start}], limit: 10).map(&:name)
-	end
-
 	def new
 		@product = Product.new
-		4.times { @product.assets.build }
 	end
 
 	def create

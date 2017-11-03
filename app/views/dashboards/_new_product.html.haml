@@ -1,0 +1,21 @@
+= form_with(model:[@store, @product], locale: true) do |f|
+	.form-group
+		= f.text_field :name, placeholder: 'Give this item a name', class: "form-control"
+	.form-group
+		= f.text_area :description, placeholder: 'Give a description of this item', class: "form-control"
+	.form-group
+		= f.number_field :price, placeholder: 'The unit price', class: "form-control"
+	.form-group
+		= f.number_field :stock, placeholder: 'how much of this item do you have for sale', class: "form-control"
+	
+	%small Add a display image
+	%p= f.file_field :image
+	
+	.section-title Add a few more images
+
+	= f.fields_for :assets do |assets|
+		- if assets.object.new_record?
+			%p= assets.file_field :image
+
+	.modal-footer
+		= f.submit "Add product", class: "btn btn-danger", data: { disable_with: 'Adding product...' }
