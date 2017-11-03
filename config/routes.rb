@@ -8,7 +8,12 @@ Rails.application.routes.draw do
       post 'follow' => 'followings#create'
     end
     
-    resources :products
+    resources :products do
+      member do
+        post 'like' => 'likes#create'
+        delete 'unlike' => 'likes#destroy'
+      end
+    end
   	resource :dashboard, only: [:show]
   end
 

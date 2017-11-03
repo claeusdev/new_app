@@ -1,11 +1,11 @@
 module ProductsHelper
-	def nested_dropdown(items)
-		result = []
-		items.map do |item, sub_items|
-			result << [(' - ' * item.depth)+ item.name, item.id]
-			result += nested_dropdown(sub_items) unless sub_items.blank?
+	
 
+	def like_button(product)
+		if current_user.liked?(product)
+			link_to "Unlike", unlike_store_product_path(product), method: :delete, class: "btn btn-danger btn-sm"
+		else
+			link_to "Like", like_store_product_path(product), method: :post, class: "btn btn-danger btn-sm"
 		end
-		result
 	end
 end

@@ -13,4 +13,6 @@
 				.store-name= @product.store.name 
 				%p.price= number_to_currency(@product.price)
 				%p= @product.description
+
+				= like_button(@product)
 				
