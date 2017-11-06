@@ -5,6 +5,7 @@ class Product < ApplicationRecord
 	belongs_to :store
 	
 	has_many :assets, dependent: :destroy
+	has_many :likes, dependent: :destroy
 	accepts_nested_attributes_for :assets, :allow_destroy => true
 
 	searchkick text_start: [:name]

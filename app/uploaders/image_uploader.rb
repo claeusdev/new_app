@@ -42,7 +42,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   version :medium do
-    process resize_to_fill(600, 600)
+    process resize_to_fill(600, 600, gravity= "Center ")
   end
 
   version :card do

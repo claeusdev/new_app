@@ -1,21 +1,23 @@
 
 .container
-	.row
-		.col-sm-6
-			.hero
-				%h1 Discover awesome brands and their products.
-		.col-sm-6
-			.home-cat-section
-				.row
-					- @categories.each do |category|
-						.col-12
-							.home-cat-section__card
-								%h5.cat-name= link_to "#{category.name}", category
+	.home-hero
+		.row
+			.col-sm-6
+				.hero
+					%h1 Discover awesome brands and their products.
+			.col-sm-6
+				.home-cat-section
+					.row
+						- @categories.each do |category|
+							.col-12
+								.home-cat-section__card
+									%h5.cat-name= link_to "#{category.name}", category
 	
 
 .page
 	%article.white
 		.container
 			.section
-				.title We are to pushing emerging brands across the world
-				.excerpt 
+				.title We are committed to pushing emerging brands across the world
+				.excerpt Join a community of awesome emerging brands
+				-# = button_to "Setup "

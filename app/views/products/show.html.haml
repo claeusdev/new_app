@@ -1,18 +1,40 @@
+.section
+	.container
+		.product-header
+			.image-container
+				.product-img{ style: "background-image:  url('#{@product.image.url}')"  }
 
-.container
-	.product-header
-		.row
-			.col-sm-6
-				.product-image{ style: "background-image: url(#{@product.image.url}"}
+				.product-actions
+					.actions-container
+						-# - if user_signed_in?
+						-# 	%span.action-like.action-showText
+						-# 		= link_to like_path(product_id: @product.id), class: "#{'is-liked' if current_user.likes!(@product)}", method: :post do
+						-# 			%span.fa.fa-heart.fa-2x{aria: {hidden: 'true'}}
+						-# 			- if @product.likes.count > 0
+						-# 				%span.showText= pluralize(@product.likes.count, "Like")
+						-# - else
+						-# 	%span.action-like.action-showText
+						-# 		%span.fa.fa-heart.fa-2x{aria: {hidden: 'true'}}
+						-# 		- if @product.likes.count > 0
+						-# 			%span.showText= "#{@product.likes.count}"
+						%br/
+			.product-info
+				.center-vertical-outer
+					.center-vertical-inner
+						.centered-section
+							-# %span.badge-error= @product.subcategory.name
+							
+							%h1.product-name= @product.name
+							.product-store
+								%span  by
+								= link_to @product.store.name, store_path(@product.store)
+							.show-price= number_to_currency(@product.price, unit: 'GHS')
 
-				- for asset in @product.assets
-					%p.asset= image_tag(asset.image.url(:standard))
-			.col-sm-6
+							-# .buy-now-container
+							-# 	= form_for @order, url: orders_path(product_id: @product), local: true do |f|
+							-# 		= f.number_field :quantity, value: 1, class: "form-input"
 
-				%h1= @product.name
-				.store-name= link_to @product.store.name, store_path(@product.store) 
-				%p.price= number_to_currency(@product.price)
-				%p= @product.description
-
-				= like_button(@product)
-				
+							-# 		= f.submit "Order now at #{number_to_currency(@product.price, unit: "GHC")}"  
+							.description= sanitize(@product.description)
+							%br/
+			

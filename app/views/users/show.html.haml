@@ -7,7 +7,7 @@
 						- if current_user.avatar.blank?
 							.pro__pic{ style: "background-image: url('#{gravatar_url(@user)}')"}
 						- else
-							.pro__pic{ style: "background-image: url('#{@user.avatar.url(:medium)}')"}
+							.pro__pic{ style: "background-image: url('#{gravatar_url(@user)}')"}
 
 					.user-info
 						.user-info__name= @user.first_name
