@@ -1,0 +1,8 @@
+= form_with(model: [@product.store, @product, order], local: true) do |f|
+	.form-group
+		= f.label :quantity, class: "form-label"
+		= f.number_field :quantity, value: 1, class: 'form-control'
+	.form-group
+		= f.label :note, class: "form-label"
+		= f.text_area :note, class: 'form-control'
+	= f.submit "Order now", class: "btn btn-danger"

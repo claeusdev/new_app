@@ -30,11 +30,8 @@
 								= link_to @product.store.name, store_path(@product.store)
 							.show-price= number_to_currency(@product.price, unit: 'GHS')
 
-							-# .buy-now-container
-							-# 	= form_for @order, url: orders_path(product_id: @product), local: true do |f|
-							-# 		= f.number_field :quantity, value: 1, class: "form-input"
-
-							-# 		= f.submit "Order now at #{number_to_currency(@product.price, unit: "GHC")}"  
+							.buy-now-container
+								= button_to "Buy now", new_store_product_order_path(product_id: @product.id) , method: :get 
 							.description= sanitize(@product.description)
 							%br/
 			

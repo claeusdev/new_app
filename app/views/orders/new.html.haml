@@ -1,0 +1,14 @@
+.page
+	%article.white
+		.section
+			.title Place your order
+			.excerpt Fill in this form to complete your order
+			.container
+				.row
+					.col-sm-6
+						= render 'form', order: @order
+
+					.col-sm-6
+						%h3= @product.name
+						%p= image_tag(@product.image.url(:standard))
+						%p= @product.description

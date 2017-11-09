@@ -13,17 +13,18 @@ Rails.application.routes.draw do
         post 'like' => 'likes#create'
         delete 'unlike' => 'likes#destroy'
       end
+      resources :orders
     end
   	resource :dashboard, only: [:show]
   end
 
   resources :categories
 
-  get 'welcome/index'
+  get '/index', to: 'pages#index'
 
-  get 'welcome/contact'
+  get '/contact', to: 'pages#contact'
 
-  get 'welcome/about'
+  get '/about', to: 'pages#about'
 
   devise_for :users, controllers: {:registrations => 'users/registrations'}
   resources :users, only: [:show]
