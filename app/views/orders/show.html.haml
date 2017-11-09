@@ -1,2 +1,11 @@
-%h1 Orders#show
-%p Find me in app/views/orders/show.html.haml
+.page
+	%article.white
+		.section
+			.title Thank You!
+			.excerpt Pleace check your email for your receipt and tracking details
+
+
+			%h1= @order.id
+			%p= number_to_currency(@order.total_price)
+		
+			= link_to "Continue shopping", root_path

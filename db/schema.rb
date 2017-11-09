@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171109144908) do
+ActiveRecord::Schema.define(version: 20171109173935) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,11 +48,22 @@ ActiveRecord::Schema.define(version: 20171109144908) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
+  create_table "order_statuses", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "orders", force: :cascade do |t|
-    t.integer "quantity"
-    t.text "note"
+    t.integer "total"
+    t.bigint "order_status_id"
     t.bigint "store_id"
     t.bigint "user_id"
+    t.bigint "product_id"
+    t.integer "quantity"
+    t.decimal "unit_price"
+    t.index ["order_status_id"], name: "index_orders_on_order_status_id"
+    t.index ["product_id"], name: "index_orders_on_product_id"
     t.index ["store_id"], name: "index_orders_on_store_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
@@ -108,6 +119,8 @@ ActiveRecord::Schema.define(version: 20171109144908) do
   add_foreign_key "followings", "stores"
   add_foreign_key "likes", "products"
   add_foreign_key "likes", "users"
+  add_foreign_key "orders", "order_statuses"
+  add_foreign_key "orders", "products"
   add_foreign_key "orders", "stores"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "orders"

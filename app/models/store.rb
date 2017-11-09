@@ -7,4 +7,9 @@ class Store < ApplicationRecord
   has_many :orders, dependent: :destroy
 
   validates :name, :about, presence: true
+
+
+  def self.orders
+  	Order.where(store_id: store.id)
+  end
 end

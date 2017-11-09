@@ -1,22 +1,24 @@
 class OrdersController < ApplicationController
-	before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!
+  
   def new
   	product
   	@order = Order.new
   end
 
   def create
-  	product
-  	@order = Order.new(order_params)
-  	@order.store_id = product.store.id
-  	@order.user_id = current_user.id
-  	@order.product = product
-  	if @order.save
-  		redirect_to store_product_order_path(product, product.store, @order), notice: "You've successfully ordered #{product.name}"
-  	end
+    product
+  	@order = current_user.orders.build(order_params)
+    @order.store_id = product.store.id
+    @order.product_id = product.id
+    @order.unit_price = product.price
+    if @order.save
+      redirect_to store_product_order_path(product.store, product, @order)
+    end
   end
 
   def show
+    @order = Order.find(params[:id])
   end
 
   def index
@@ -26,7 +28,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-  	params.require(:order).permit(:quantity, :note, :product_id, :store_id, :user_id)
+  	params.require(:order).permit(:total, :store_id, :product_id, :quantity)
   end
 
   def product

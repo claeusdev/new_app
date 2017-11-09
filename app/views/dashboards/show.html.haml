@@ -17,8 +17,10 @@
 .page
 	%article.white
 	%h1.section-header Orders
-	= render @store.orders
-
+	- @store.orders.each do |order|
+		-# = link_to order.product.id, store_product_path(@store, order.product)
+		= order.quantity
+		= order.total_price 
 
 -# New product modal
 .modal.fade#newProductModal{ 'tabindex' => "-1", 'role' => "dialog", "aria-labelledby" => "newProductModal", "aria-hidden" => "true" }
