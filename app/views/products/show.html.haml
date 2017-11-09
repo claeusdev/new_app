@@ -31,7 +31,7 @@
 							.show-price= number_to_currency(@product.price, unit: 'GHS')
 
 							.buy-now-container
-								= button_to "Buy now", new_store_product_order_path(product_id: @product.id) , method: :get 
+								= link_to "Buy now ", new_store_product_order_path(product_id: @product.id), class: "buy-now"
 							.description= sanitize(@product.description)
 							%br/
 			

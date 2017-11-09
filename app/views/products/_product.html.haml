@@ -1,7 +1,7 @@
 
 .col-sm-2.col-6
 	.card
-		= image_tag(product.image_url(:card), class: "card-img-top")
+		= image_tag(product.image_url(:card), class: "card-img-top img-fluid")
 		.card-body
 			= link_to product.name, store_product_path(product.store, product)
 			%p= number_to_currency(product.price)

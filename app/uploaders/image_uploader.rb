@@ -38,19 +38,27 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :standard do
+    process :eager => true
     process :resize_to_fill => [100, 150, :north]
+    cloudinary_transformation :quality => 80
   end
 
   version :medium do
+    process :eager => true
     process resize_to_fill(600, 600, gravity= "Center ")
+    cloudinary_transformation :quality => 80
   end
 
   version :card do
+    process :eager => true
     process resize_to_fill(340, 270)
+    cloudinary_transformation :quality => 80
   end 
   
   version :thumbnail do
+    process :eager => true
     process resize_to_fill(50, 50)
+    cloudinary_transformation :quality => 80
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
