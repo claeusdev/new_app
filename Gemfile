@@ -23,7 +23,8 @@ gem 'haml-rails'
 gem 'normalize-rails'
 
 gem 'carrierwave'
-gem "fog-aws"
+gem 'cloudinary'
+# gem "fog-aws"
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'ancestry'
 gem 'searchkick'

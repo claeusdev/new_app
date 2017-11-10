@@ -6,21 +6,21 @@
 		%h1= @store.name
 		-# Trigger new product modal
 		%button{ 'type' => 'button', class: "btn btn-danger", 'data-toggle' => 'modal', 'data-target' => "#newProductModal" } Add product
-.section-title Your products
 
 .container
 	.row
-		= render @store.products
+		.col-sm-6
+			.module
+				.module__header Your products
+				.module__details
+					%ul.dashboard-list
+						= render @store.products
 
-
-
-.page
-	%article.white
-	%h1.section-header Orders
-	- @store.orders.each do |order|
-		-# = link_to order.product.id, store_product_path(@store, order.product)
-		= order.quantity
-		= order.total_price 
+		
+		.col-sm-6
+			.module
+				.module__header Orders
+				.module__details
 
 -# New product modal
 .modal.fade#newProductModal{ 'tabindex' => "-1", 'role' => "dialog", "aria-labelledby" => "newProductModal", "aria-hidden" => "true" }

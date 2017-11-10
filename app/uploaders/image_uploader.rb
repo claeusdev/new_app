@@ -45,7 +45,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   version :medium do
     process :eager => true
-    process resize_to_fill(600, 600, gravity= "Center ")
+    process resize_to_fill(600, 600)
     cloudinary_transformation :quality => 80
   end
 
