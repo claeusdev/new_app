@@ -26,7 +26,7 @@ Rails.application.routes.draw do
 
   get '/about', to: 'pages#about'
 
-  devise_for :users, controllers: {:registrations => 'users/registrations', confirmations: 'users/confirmations'}
+  devise_for :users, controllers: {:registrations => 'users/registrations', :confirmations => 'users/confirmations'}
   resources :users, only: [:show]
 
   root 'pages#index'
