@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def index
-  	@categories = Category.all
+  	@categories = Category.all.order('name asc').limit(2)
   end
 
   def contact
