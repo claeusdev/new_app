@@ -1,6 +1,7 @@
 class StoresController < ApplicationController
   def show
     @store = Store.find(params[:id])
+    impressionist(@store)
   end
 
   def new

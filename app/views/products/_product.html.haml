@@ -1,6 +1,7 @@
 
 .col
 	%li.dashborad-list__item= link_to product.name, store_product_path(product.store, product)
+	%span= product.impressionist_count
 	-# .card
 	-# 	= image_tag(product.image_url(:card), class: "card-img-top img-fluid")
 	-# 	.card-body
