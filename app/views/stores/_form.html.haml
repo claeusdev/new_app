@@ -6,6 +6,6 @@
 	.form-group
 		= f.text_area :about, placeholder: 'Say something small about your brand', class: "form-control"
 	.form-group
-		= f.collection_select :category_id, Category.order(:name), :id, :name, {prompt: "What will you be selling?"}, placeholder: 'Say something small about your brand', class: "form-control" 
+		= f.collection_select :category_id, Category.order(:name), :id, :name, {prompt: "What are you selling?"}, placeholder: 'Say something small about your brand', class: "form-control" 
 
-	= f.submit "Create your store", class: "btn btn-danger"
+	= f.submit "Create your store", class: "btn btn-danger big-btn"

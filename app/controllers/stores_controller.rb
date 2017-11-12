@@ -1,7 +1,10 @@
 class StoresController < ApplicationController
+  before_action :authenticate_user!, except: :show
+
   def show
     @store = Store.find(params[:id])
     impressionist(@store)
+    @review = Review.new
   end
 
   def new

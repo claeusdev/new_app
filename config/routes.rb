@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resource :search, only: [:show]
 
 	resources :stores do
-
+    resources :reviews, except: [:show, :index]
     member do
       post 'follow' => 'followings#create'
     end
