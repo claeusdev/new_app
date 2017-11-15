@@ -10,6 +10,7 @@ class Store < ApplicationRecord
   has_many :followings, dependent: :destroy
   has_many :followers, through: :followings
   has_many :orders, dependent: :destroy
+  has_many :messages, dependent: :destroy
 
   validates :name, :about, presence: true
 

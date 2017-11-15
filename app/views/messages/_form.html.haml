@@ -1,0 +1,6 @@
+= form_with(model: message, url: messages_path, locale: true) do |f|
+	.form-group
+		= f.hidden_field :store_id, value: @product.store_id
+		= f.text_field :body, class: "form-control"
+
+	= f.submit "Send Message", class: "btn btn-danger btn-block"

@@ -9,7 +9,7 @@
 
 .container
 	.row
-		.col-sm-4
+		.col-sm-6
 			.module
 				.module__header Quick stats
 				.module__details
@@ -18,7 +18,7 @@
 						.label Views from last 7 days
 						.views_count= @store.impressionist_count
 
-		.col-sm-4
+		.col-sm-6
 			.module
 				.module__header Products
 				.module__details
@@ -27,9 +27,13 @@
 							= render @store.products
 					- else
 						.not-present
+		.col-sm-6
+			.module
+				.module__header Messages
+				.module__details
 							
 
-		.col-sm-4
+		.col-sm-6
 			.module
 				.module__header Settings
 				.module__details

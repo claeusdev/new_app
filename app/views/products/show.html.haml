@@ -31,8 +31,21 @@
 							.show-price= number_to_currency(@product.price, unit: 'GHS')
 
 							.buy-now-container
-								= link_to "Buy now ", new_store_product_order_path(product_id: @product.id), class: "btn btn-danger"
 								= link_to "Add to cart", new_store_product_order_path(product_id: @product.id), class: "btn btn-danger"
+								-# %button{ 'type' => 'button', class: "btn btn-danger", 'data-toggle' => 'modal', 'data-target' => "#newMessageModal" } Ask question
+
 							.description= sanitize(@product.description)
 							%br/
 			
+
+-# New message modal
+.modal.fade#newMessageModal{ 'tabindex' => "-1", 'role' => "dialog", "aria-labelledby" => "newMessageModal", "aria-hidden" => "true" }
+	.modal-dialog{ role: "document"}
+		.modal-content
+			.modal-header
+				%h5.modal-title#newMessageModalLabel= "Send message to #{@product.store.name}"
+				%button{ class: "close", "type" => "button", "data-dismiss" => "modal", 'aria-label' => "Close"}
+					%span{ 'aria-hidden' => true} &times
+
+			.modal-body
+				= render "messages/form", message: @message
