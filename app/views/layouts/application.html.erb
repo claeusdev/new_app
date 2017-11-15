@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for?(:title) ? yield(:title) : "Claeus" %></title>
+    <!-- <title></title> -->
+    <title><%= @meta_title ? @meta_title : ApplicationController::BRAND_NAME %></title>
+    <% if @meta_description.present? %>
+     <meta name=”description” content=”<%= @meta_description %>”>
+    <% end %>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">

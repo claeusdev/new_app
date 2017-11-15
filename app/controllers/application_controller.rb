@@ -8,7 +8,9 @@ class ApplicationController < ActionController::Base
    end
 
 
-   # def current_user
-   # 		super || Guest.new
-   # end
+   BRAND_NAME = 'Claeus'.freeze
+
+  def meta_title(title)
+    [title, BRAND_NAME].reject(&:empty?).join(' | ')
+  end
 end

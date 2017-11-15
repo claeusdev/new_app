@@ -2,6 +2,7 @@ class CategoriesController < ApplicationController
 	
 	def index
 		@categories = Category.all.order('name asc')
+  	@meta_title = meta_title "Discover by categories."
 	end
 
 	def new
