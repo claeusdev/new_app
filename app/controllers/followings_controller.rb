@@ -5,10 +5,10 @@ class FollowingsController < ApplicationController
 		redirect_to store_to_follow
 	end
 
-	def destoy
+	def destroy
 		store_to_unfollow = find_store
 		current_user.unfollow(store_to_unfollow, current_user)
-		redirect_to store_to_follow
+		redirect_to store_to_unfollow
 	end
 
 	private

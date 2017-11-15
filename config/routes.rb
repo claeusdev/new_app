@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :reviews, except: [:show, :index]
     member do
       post 'follow' => 'followings#create'
+      delete 'unfollow', :to => 'followings#destroy'
     end
     
     resources :products do
