@@ -1,4 +1,9 @@
 class Product < ApplicationRecord
+	extend FriendlyId
+  friendly_id :name, use: :slugged
+
+	before_save :anti_spam
+
 	is_impressionable
 	mount_uploader :image, ImageUploader
 
@@ -18,4 +23,16 @@ class Product < ApplicationRecord
 			description: description
 		}
 	end
+
+
+	def anti_spam
+    doc = Nokogiri::HTML::DocumentFragment.parse(description)
+
+    doc.css('a').each do |a|
+      a[:rel] = 'nofollow'
+      a[:target] = '_blank'
+    end
+
+    self.description = doc.to_s
+  end
 end

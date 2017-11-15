@@ -105,6 +105,8 @@ GEM
     faraday (0.13.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
+    friendly_id (5.2.3)
+      activerecord (>= 4.0.0)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     haml (5.0.4)
@@ -241,6 +243,11 @@ GEM
       rack (~> 2.0)
       rack-protection (= 2.0.0)
       tilt (~> 2.0)
+    sitemap_generator (6.0.0)
+      builder (~> 3.0)
+    social-share-button (0.2.1)
+      coffee-rails
+      sass-rails
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -293,6 +300,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   dotenv-rails
+  friendly_id
   haml-rails
   impressionist
   jbuilder (~> 2.5)
@@ -310,6 +318,8 @@ DEPENDENCIES
   searchkick
   selenium-webdriver
   sendgrid-ruby
+  sitemap_generator
+  social-share-button (= 0.2.1)
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)

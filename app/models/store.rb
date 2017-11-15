@@ -1,4 +1,7 @@
 class Store < ApplicationRecord
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+  
 	is_impressionable
 	
   belongs_to :user

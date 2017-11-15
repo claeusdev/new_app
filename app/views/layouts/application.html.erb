@@ -6,7 +6,11 @@
     <% if @meta_description.present? %>
      <meta name=”description” content=”<%= @meta_description %>”>
     <% end %>
+    <% if @og_properties.present? %>
+     <%= meta_og_tags @og_properties %>
+    <% end %>
     <%= csrf_meta_tags %>
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -17,5 +21,6 @@
     <%= render 'layouts/header' %>
     <%= yield %>
     <%= render 'layouts/footer' %>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a0ba688794134a3"></script> 
   </body>
 </html>

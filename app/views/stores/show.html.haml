@@ -12,6 +12,11 @@
 						.store-desc= @store.about
 					= follow_button @store
 					%button{ 'type' => 'button', class: "btn btn-danger btn-sm", 'data-toggle' => 'modal', 'data-target' => "#newReviewModal" } Add review
+					
+					.addthis_inline_share_toolbox
+					
+
+					-# = social_share_button_tag(@store.name, @store.about, store_url(@store))
 
 
 .store-section
