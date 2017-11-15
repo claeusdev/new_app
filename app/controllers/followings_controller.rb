@@ -8,6 +8,6 @@ class FollowingsController < ApplicationController
 	private
 
 	def find_store
-		@_store ||= Store.find(params[:id])
+		@_store ||= Store.friendly.find(params[:id])
 	end
 end

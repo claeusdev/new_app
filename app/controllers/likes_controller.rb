@@ -13,6 +13,6 @@ class LikesController < ApplicationController
 	private
 
 	def product
-		@_product ||= Product.find(params[:id])
+		@_product ||= Product.friendly.find(params[:id])
 	end
 end

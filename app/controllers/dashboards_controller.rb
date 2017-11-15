@@ -3,6 +3,6 @@ class DashboardsController < ApplicationController
 	def show
 		@product = Product.new
 		4.times { @product.assets.build }
-		@store = Store.find(params[:store_id])
+		@store = Store.friendly.find(params[:store_id])
 	end
 end
