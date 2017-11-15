@@ -16,6 +16,14 @@ class User < ApplicationRecord
   	store.followers << user
   end
 
+  def following? store, user
+    store.follower_ids.include? user.id
+  end
+
+  def unfollow (store, user)
+    store.followers.delete(user.id)
+  end
+
 
   def like(product)
   	liked_products << product
