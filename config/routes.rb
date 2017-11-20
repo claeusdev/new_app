@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :carts
   resources :messages
   resource :search, only: [:show]
 

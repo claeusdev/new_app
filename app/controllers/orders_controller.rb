@@ -1,37 +1,24 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!
-  
   def new
-  	product
-  	@order = Order.new
+    product
+    @order = Order.new
   end
 
   def create
-    product
-  	@order = current_user.orders.build(order_params)
-    @order.store_id = product.store.id
-    @order.product_id = product.id
-    @order.unit_price = product.price
+    @order = Order.new(order_params)
+    @order.user_id = current_user.id
     if @order.save
-      redirect_to store_product_order_path(product.store, product, @order)
+      redirect_to store_product_order_path(@order)
     end
   end
 
-  def show
-    @order = Order.find(params[:id])
-  end
-
-  def index
-  end
-
-
   private
 
-  def order_params
-  	params.require(:order).permit(:total, :store_id, :product_id, :quantity)
+  def product
+    @product = Product.friendly.find(params[:product_id])
   end
 
-  def product
-  	@product = Product.find(params[:product_id])
+  def order_params
+    params.require(:order).permit(:user_id, :total)
   end
 end
