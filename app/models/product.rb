@@ -1,4 +1,6 @@
 class Product < ApplicationRecord
+  before_destroy :ensure_not_referenced_by_any_line_item
+
 	extend FriendlyId
   friendly_id :name, use: :slugged
 
@@ -12,9 +14,7 @@ class Product < ApplicationRecord
 	has_many :assets, dependent: :destroy
 	has_many :likes, dependent: :destroy
 	has_many :line_items
-	has_many :orders, through: :line_items
 	
-	belongs_to :order, optional: true
 	
 	accepts_nested_attributes_for :assets, :allow_destroy => true
 
@@ -39,4 +39,13 @@ class Product < ApplicationRecord
 
     self.description = doc.to_s
   end
+
+	private
+	# ensure that there are no line items referencing this product
+	def ensure_not_referenced_by_any_line_item
+		unless line_items.empty?
+			errors.add(:base, 'Line Items present')
+			throw :abort
+		end
+	end
 end

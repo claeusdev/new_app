@@ -31,8 +31,7 @@
 							.show-price= number_to_currency(@product.price, unit: 'GHS')
 
 							.buy-now-container
-								= link_to "Buy Now for #{number_to_currency(@product.price, unit: "GHS")}", new_store_product_order_path(product_id: @product.id), class: "btn btn-danger"
-								-# %button{ 'type' => 'button', class: "btn btn-danger", 'data-toggle' => 'modal', 'data-target' => "#newMessageModal" } Ask question
+								= button_to "Add to Cart", line_items_path(product_id: @product)
 
 							.description= sanitize(@product.description)
 							%br/
