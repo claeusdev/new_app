@@ -1,6 +1,13 @@
 class OrdersController < ApplicationController
 
 	before_action :ensure_cart_not_empty, only: [:new]
+	def new
+		@order = Order.new
+	end
+
+	def show
+		@order = Order.find(params[:id])
+	end
 
 	def create
 		@order = Order.new(order_params)
@@ -9,7 +16,7 @@ class OrdersController < ApplicationController
 			if @order.save
 				Cart.destroy(session[:cart_id])
 				session[:cart_id] = nil
-				format.html { redirect_to Order, notice:
+				format.html { redirect_to order_path(@order), notice:
 				'Thank you for your order.' }
 				format.json { render :show, status: :created,
 				location: @order }
@@ -26,7 +33,6 @@ class OrdersController < ApplicationController
 	def ensure_cart_not_empty
 		if @cart.line_items.empty?
 			redirect_to root_url, notice: "Your cart is empty"
-			
 		end
 	end
 
