@@ -13,6 +13,7 @@ class LineItemsController < ApplicationController
 			if @line_item.save
 				format.html { redirect_to @line_item.cart,
 					notice: "Product was successfully added to your cart."}
+				format.js
 				format.json { render :show, status: :created, location: @line_item}
 			end
 		end

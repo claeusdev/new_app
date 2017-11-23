@@ -6,9 +6,4 @@
 			.container
 				.row
 					.col-sm-6
-						= render 'form', order: @order
-
-					.col-sm-6
-						%h3= @product.name
-						%p= image_tag(@product.image.url(:standard))
-						%p= @product.description
+						= render 'form'

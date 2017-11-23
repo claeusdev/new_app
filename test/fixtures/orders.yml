@@ -1,9 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user: one
-  total: 9.99
+  name: MyString
+  address: MyText
+  email: MyString
+  pay_type: 1
+  phone: MyString
 
 two:
-  user: two
-  total: 9.99
+  name: MyString
+  address: MyText
+  email: MyString
+  pay_type: 1
+  phone: MyString

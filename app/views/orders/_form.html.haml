@@ -1,8 +1,22 @@
-= form_with(model: [@product.store, @product, order], local: true) do |f|
+= form_with(model: @order, url: orders_path, remote: false) do |f|
 	.form-group
-		= f.label :quantity, class: "form-label"
-		= f.number_field :quantity, value: 1, class: 'form-control'
+		= f.label :name
+		= f.text_field :name, size: 40, class: "form-control"
+	
 	.form-group
-		= f.label :note, class: "form-label"
-		= f.text_area :note, class: 'form-control'
-	= f.submit "Order now", class: "btn btn-danger"
+		= f.label :address
+		= f.text_area :address, size: 40, class: "form-control"
+
+	.form-group
+		= f.label :email
+		= f.text_field :email, size: 40, class: "form-control"
+
+	.form-group
+		= f.label :phone
+		= f.text_field :phone, size: 40, class: "form-control"
+
+	.form-group
+		= f.label :pay_type
+		= f.select :pay_type, Order.pay_types.keys, size: 40, prompt: "Select a payment method", class: "form-control"
+
+	= f.submit 'Place Order', class: "btn btn-danger"

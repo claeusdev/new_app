@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :line_items
   resources :carts
   resources :messages
+  resources :orders
   resource :search, only: [:show]
 
 	resources :stores do
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
         post 'like' => 'likes#create'
         delete 'unlike' => 'likes#destroy'
       end
-      resources :orders
+
     end
   	resource :dashboard, only: [:show]
   end
